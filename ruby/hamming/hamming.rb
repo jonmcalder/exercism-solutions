@@ -1,15 +1,10 @@
+module BookKeeping
+  VERSION = 3
+end
+
 class Hamming
-  def self.compute(strandA, strandB)
-    if strandA.length == strandB.length
-      @hamming = 0
-      strandA.split("").zip(strandB.split("")) do |a, b|
-        if a != b
-          @hamming += 1
-        end
-      end
-      return @hamming
-    else
-      raise(ArgumentError)
-    end
+  def self.compute(strand1, strand2)
+    raise ArgumentError.new("Strings are not equal in length") unless strand1.length == strand2.length
+    strand1.chars.zip(strand2.chars).count { |n1, n2| n1 != n2 }
   end
 end
