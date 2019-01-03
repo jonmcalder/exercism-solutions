@@ -1,5 +1,7 @@
-source('./leap.R')
-suppressPackageStartupMessages({ require(testthat) })
+source("./leap.R")
+library(testthat)
+
+context("leap")
 
 test_that("year not divisible by 4: common year", {
   year <- 2015
@@ -21,4 +23,4 @@ test_that("year divisible by 400: leap year", {
   expect_equal(leap(year), TRUE)
 })
 
-print("All tests passed!")
+message("All tests passed for exercise: leap")
